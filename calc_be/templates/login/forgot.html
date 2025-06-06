@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="{% static 'login/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    {% block content %}
+ <div style="height: auto; width: 400px;">
+    <div>
+        <form action="{% url 'forgot_password' %}" method="POST">
+            
+            {% csrf_token %}
+            <center>
+            <h1 style="color: white;">Forgot Password</h1>
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email" required style="background-color: #3d3d3d;">
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <button type="submit" class="btn">Send OTP</button>
+        </center>
+            <div class="forgot-link">
+                <a href="{% url 'auth_home' %}">Back to Login</a>
+            </div>
+           
+        </form>
+    </div>
+  </div>
+ {% endblock %}
+ </body>
+</html>
+

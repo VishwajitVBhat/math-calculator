@@ -1,0 +1,20 @@
+Django>=5.0,<5.1
+
+# Deep learning
+torch>=2.1.0
+transformers>=4.35.0
+sentencepiece==0.1.99  # Requires CMake and C++ build tools
+opencv-python-headless>=4.9.0
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# Symbolic math
+sympy>=1.12
+
+# Build tools
+wheel
+setuptools>=65
+
+# Optional layout parser (requires tesseract + layout models)
+layoutparser==0.3.4
+layoutparser[layoutmodels,tesseract]==0.3.4 
